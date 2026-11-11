@@ -1,0 +1,72 @@
+[project]
+name = "compose2role"
+version = "0.1.0"
+description = "Generate Ansible roles from Docker Compose projects"
+authors = [
+    { name = "Marco D'Aleo", email = "marco@marcodaleo.com" }
+]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "click>=8.1.8,<9.0",
+    "jinja2>=3.1.6,<4.0",
+    "ruamel.yaml>=0.18.16,<0.19",
+]
+keywords = [
+    "ansible",
+    "docker",
+    "docker-compose",
+    "sops",
+    "ssh",
+    "cli",
+    "sysadmin",
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Systems Administration",
+]
+
+[project.urls]
+Homepage = "https://git.sysmd.uk/mdaleo404/compose2role"
+Repository = "https://git.sysmd.uk/mdaleo404/compose2role"
+
+[project.scripts]
+compose2role = "compose2role.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "compose2role", from = "src" }]
+
+[dependency-groups]
+dev = [
+    "ansible-lint>=26.10.1,<27.0",
+    "mypy>=1.15,<2.0",
+    "pytest>=8.3,<9.0",
+    "ruff>=0.11,<1.0",
+    "pre-commit (>=4.6,<5.0)",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+files = ["src"]
+python_version = "3.12"
+strict = true
