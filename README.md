@@ -254,5 +254,8 @@ Without the pinned collections in `collections/`, those tests fail. Remote tests
 `sops` through `PATH`, so they need no real host, network, sudo, or secrets. `mypy` checks only
 `src` in strict mode.
 
-See [Development and validation](https://www.sysmd.uk/docs/compose2role/development/) for focused
-tests and the dedicated Ansible environment setup.
+## Support
+
+If you find **compose2role** useful, consider supporting its development:
+
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mdaleo404)
